@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neutral Ground HQ — Strategy & Facilitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700;12..96,800&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:   #ffffff;
+      --off:     #f8f7f5;
+      --off2:    #f1efe9;
+      --navy:    #0D2B56;
+      --navy2:   #091F3E;
+      --navy3:   #122E5C;
+      --ink:     #1c1c1c;
+      --ink2:    #4a4a4a;
+      --ink3:    #888880;
+      --red:     #BD3039;
+      --red-dim: rgba(189,48,57,0.12);
+      --blue:    #1AAEBC;
+      --amber-l: rgba(189,48,57,0.08);
+      --border:  #e4e2da;
+      --border2: #d0cdc4;
+      --ff-head:   'Bricolage Grotesque', sans-serif;
+      --ff-body:   'Source Serif 4', Georgia, serif;
+      --ff-accent: 'Kalam', cursive;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* 68px nav + 12px breathing room */
+    }
+
+    section, footer {
+      scroll-margin-top: 80px;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--ff-body);
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav {
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 68px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: var(--navy2);
+      border-bottom: 2px solid var(--navy3);
+      overflow: visible;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--red);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+ 
+    .logo-mark::after {
+      content: '';
+      width: 10px; height: 10px;
+      background: var(--white);
+    }
+    
+    .logo-wordmark {
+      font-family: var(--ff-head);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .logo-wordmark span {
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      font-family: var(--ff-head);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #1AAEBC; }
+
+    .nav-cta {
+      flex-shrink: 0;
+      white-space: nowrap;
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      background: var(--navy);
+      padding: 10px 22px;
+      text-decoration: none;
+      border: 1.5px solid var(--navy);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--red); border-color: var(--red); }
+
+    /* ── HERO ─────────────────────────────────────── */
+    #hero {
+      padding: 140px 56px 100px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+      min-height: 100vh;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-left {}
+
+    .hero-kicker {
+      font-family: var(--ff-accent);
+      font-size: 16px;
+      letter-spacing: 0.02em;
+      color: var(--red);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-kicker::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 1.5px;
+      background: var(--red);
+    }
+
+    h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(42px, 5.5vw, 74px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .hero-lead {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 13px 26px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .btn-navy:hover { background: var(--red); border-color: var(--red); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--border2);
+    }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* Hero right — stat panel */
+    .hero-right {
+      background: var(--navy);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-self: stretch;
+    }
+
+    .hero-panel-label {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-stat {
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat:last-child { border-bottom: none; }
+
+    .h-stat-num {
+      font-family: var(--ff-head);
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .h-stat-lbl {
+      font-family: var(--ff-accent);
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── TICKER ───────────────────────────────────── */
+    .ticker-wrap {
+      background: var(--off2);
+      border-bottom: 1px solid var(--border);
+      padding: 13px 0;
+      overflow: hidden;
+    }
+
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker 36s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink3);
+      padding: 0 36px;
+    }
+
+    .ticker-item .ta { color: var(--blue); margin-right: 36px; }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION FOUNDATIONS ──────────────────────── */
+    section { padding: 96px 56px; }
+
+    .section-label {
+      font-family: var(--ff-accent);
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: var(--red);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--red);
+    }
+
+    h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(28px, 3vw, 46px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    h2 em { font-style: italic; font-weight: 600; color: var(--red); }
+    h2.light { color: var(--white); }
+    h2.light em { color: rgba(255,255,255,0.55); }
+
+    .lead {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.8;
+      max-width: 580px;
+    }
+
+    .lead.light { color: rgba(255,255,255,0.6); }
+
+    .divider { width: 36px; height: 2px; background: var(--red); margin: 24px 0; }
+    .divider.light { background: rgba(255,255,255,0.25); }
+
+    /* ── WHAT WE DO ───────────────────────────────── */
+    #what-we-do {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wwd-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      margin-top: 8px;
+    }
+
+    .service-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .service-item:hover {
+      border-color: var(--border2);
+      box-shadow: 0 2px 16px rgba(13,43,86,0.06);
+    }
+
+    .s-num {
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.02em;
+      min-width: 24px;
+      padding-top: 3px;
+    }
+
+    .s-content h3 {
+      font-family: var(--ff-head);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    .s-content p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.7;
+      font-family: var(--ff-body);
+    }
+
+    /* ── APPROACH ─────────────────────────────────── */
+    #approach {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    #approach .section-label { color: rgba(255,255,255,0.4); }
+    #approach .section-label::before { background: rgba(255,255,255,0.2); }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+      margin-top: 52px;
+    }
+
+    .a-cell {
+      background: var(--navy);
+      padding: 36px 32px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .a-cell:hover { background: var(--navy3); }
+
+    .a-cell::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+      transition: background 0.2s;
+    }
+    .a-cell:hover::before { background: var(--red); }
+
+    .a-num {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(26,174,188,0.45);
+      margin-bottom: 16px;
+    }
+
+    .a-title {
+      font-family: var(--ff-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .a-text {
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+    }
+
+    .approach-pull {
+      margin-top: 52px;
+      padding: 32px 36px;
+      border-left: 3px solid var(--red);
+      background: rgba(255,255,255,0.03);
+      max-width: 680px;
+    }
+
+    .approach-pull p {
+      font-family: var(--ff-body);
+      font-size: 20px;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .approach-pull cite {
+      font-family: var(--ff-accent);
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--blue);
+      font-style: normal;
+    }
+
+    /* ── PRODUCTS ─────────────────────────────────── */
+    #products {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    .product-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover {
+      box-shadow: 0 8px 32px rgba(13,43,86,0.08);
+    }
+
+    .product-header {
+      padding: 36px 36px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .p-eyebrow {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .p-navy .p-eyebrow { background: rgba(13,43,86,0.07); color: var(--navy); }
+    .p-amber-t .p-eyebrow { background: var(--amber-l); color: var(--red); }
+
+    .product-name {
+      font-family: var(--ff-head);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .product-desc {
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.8;
+    }
+
+    .product-callout {
+      font-family: var(--ff-head);
+      font-size: 12px;
+      color: var(--ink3);
+      padding: 14px 16px;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+
+    .p-navy .product-callout { background: rgba(13,43,86,0.04); border-left: 2px solid var(--navy); }
+    .p-amber-t .product-callout { background: var(--amber-l); border-left: 2px solid var(--red); }
+
+    .product-steps {
+      list-style: none;
+      padding: 0 36px;
+    }
+
+    .p-step {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .p-step:last-child { border-bottom: none; }
+
+    .p-step-num {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      min-width: 52px;
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .p-navy .p-step-num { color: var(--blue); }
+    .p-amber-t .p-step-num { color: var(--red); }
+
+    .p-step-text {
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.65;
+    }
+
+    .product-footer {
+      padding: 20px 36px;
+      background: var(--off);
+      border-top: 1px solid var(--border);
+    }
+
+    .p-link {
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
+
+    .p-navy .p-link { color: var(--navy); }
+    .p-amber-t .p-link { color: var(--blue); }
+    .p-link:hover { gap: 14px; }
+
+    /* ── MOSAIC DEMO ──────────────────────────────── */
+    #mosaic-demo {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .demo-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 52px;
+    }
+
+    .demo-panel {
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .demo-bar {
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot-r { width: 10px; height: 10px; border-radius: 50%; background: #c94030; }
+    .dot-y { width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
+    .dot-g { width: 10px; height: 10px; border-radius: 50%; background: #3a8a50; }
+
+    .demo-url {
+      font-family: var(--ff-head);
+      font-size: 13px;
+      color: var(--blue);
+      opacity: 0.6;
+      margin-left: 10px;
+    }
+
+    .demo-body-inner {
+      padding: 36px 32px;
+    }
+
+    .demo-status {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+    .demo-quote {
+      font-family: var(--ff-body);
+      font-size: 18px;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .demo-right p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      font-family: var(--ff-body);
+    }
+
+    /* ── IMPACT ───────────────────────────────────── */
+    #impact {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .impact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .stats-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+
+    .stat-box {
+      background: var(--white);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .stat-box:hover { background: var(--off); }
+
+    .stat-num {
+      font-family: var(--ff-head);
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-lbl {
+      font-family: var(--ff-accent);
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      color: var(--ink3);
+    }
+
+    .logo-strip-header {
+      font-family: var(--ff-accent);
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--ink3);
+      margin-bottom: 24px;
+      margin-top: 52px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 36px 48px;
+    }
+
+    .logo-strip img {
+      height: 36px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo-strip-ph {
+      font-family: var(--ff-head);
+      font-size: 12px;
+      color: var(--border2);
+      border: 1px dashed var(--border);
+      padding: 8px 14px;
+      white-space: nowrap;
+    }
+
+    /* ── DESIGN SHOP ──────────────────────────────── */
+    #design-shop {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ds-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .ds-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .ds-feat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 22px 26px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .ds-feat:hover { border-color: var(--border2); }
+
+    .ds-arrow {
+      font-family: var(--ff-head);
+      font-size: 12px;
+      color: var(--blue);
+      flex-shrink: 0;
+      padding-top: 3px;
+    }
+
+    .ds-feat h4 {
+      font-family: var(--ff-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .ds-feat p {
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.7;
+    }
+
+    .collab-box {
+      background: var(--navy);
+      padding: 28px 32px;
+      margin-top: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .collab-bar {
+      width: 2px;
+      background: var(--red);
+      flex-shrink: 0;
+      align-self: stretch;
+    }
+
+    .collab-inner h4 {
+      font-family: var(--ff-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .collab-inner p {
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .collab-link {
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .collab-link:hover { gap: 10px; }
+
+    /* ── VALUES ───────────────────────────────────── */
+    #values {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 52px;
+    }
+
+    .v-cell {
+      background: var(--white);
+      padding: 36px 30px;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .v-cell:hover { background: var(--off); }
+    .v-cell:hover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .v-num {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--blue);
+      opacity: 0.5;
+      margin-bottom: 14px;
+    }
+
+    .v-title {
+      font-family: var(--ff-head);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .v-body {
+      font-family: var(--ff-body);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.75;
+    }
+
+    /* ── WHO WE ARE ───────────────────────────────── */
+    #who-we-are {
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wwa-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .bio-sidebar { position: sticky; top: 88px; }
+
+    .headshot-wrap {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .headshot-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--navy3) 0%, var(--navy2) 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+
+    .headshot-ph {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .nameplate {
+      margin-top: 18px;
+      padding-left: 14px;
+      border-left: 2px solid var(--red);
+    }
+
+    .nameplate-name {
+      font-family: var(--ff-head);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+    }
+
+    .nameplate-role {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--blue);
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+
+    .cred-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .cred-tag {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink3);
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 4px 9px;
+    }
+
+    .bio-main {}
+
+    .bio-section { margin-bottom: 40px; }
+
+    .bio-section h3 {
+      font-family: var(--ff-head);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .bio-section p {
+      font-family: var(--ff-body);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink2);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    /* ── CONTACT ──────────────────────────────────── */
+    #contact {
+      background: var(--navy);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    #contact .section-label { color: rgba(255,255,255,0.35); }
+    #contact .section-label::before { background: rgba(255,255,255,0.2); }
+
+    .contact-info { margin-top: 36px; }
+
+    .c-row {
+      display: flex;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      align-items: flex-start;
+    }
+
+    .c-lbl {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      min-width: 80px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .c-val {
+      font-family: var(--ff-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .c-val a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .c-val a:hover { color: var(--blue); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .form-field { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-field label {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 15px;
+      font-weight: 300;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: var(--blue); }
+
+    .form-field textarea { resize: vertical; min-height: 110px; }
+
+    .form-field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(189,48,57,.7)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+    .form-field select option { background: var(--navy2); }
+
+    .form-note {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--navy2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: var(--ff-head);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-logo span { color: var(--red); }
+
+    .footer-copy {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--blue); }
+
+    /* ── PHOTO PLACEHOLDERS ───────────────────────── */
+    .photo-ph {
+      width: 100%;
+      background: var(--navy2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-ph::after {
+      content: attr(data-label);
+      font-family: var(--ff-head);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .photo-ph-wide  { height: 380px; margin-top: 52px; }
+    .photo-ph-tall  { height: 480px; }
+    .photo-ph-med   { height: 300px; margin-top: 28px; }
+
+    .photo-ph-light { background: var(--off2); }
+    .photo-ph-light::after { color: var(--border2); }
+
+    /* ── ANIMATION ────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 680px) {
+      nav { padding: 0 22px; }
+      .nav-links { display: none; }
+      section { padding: 68px 22px; }
+      #hero { grid-template-columns: 1fr; padding: 108px 22px 72px; }
+      .hero-right { margin-top: 0; align-self: auto; }
+      .wwd-layout, .ds-layout, .wwa-layout, .contact-layout, .impact-layout, .demo-layout { grid-template-columns: 1fr; gap: 36px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .approach-grid, .values-grid { grid-template-columns: 1fr; }
+      .bio-sidebar { position: static; }
+      footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">
+    <div class="logo-mark"></div>
+    <span class="logo-wordmark">Neutral Ground <span>HQ</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#what-we-do">What We Do</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#who-we-are">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Start a Conversation</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left fade-in">
+    <p class="hero-kicker">Strategy &amp; Facilitation · New Orleans</p>
+    <h1>
+      The insight<br/>
+      you need is<br/>
+      already <em>inside</em><br/>
+      your organization.
+    </h1>
+    <p class="hero-lead">
+      Neutral Ground helps leadership teams align, decide, and move forward on their most complex challenges — combining expert human facilitation with AI-enabled listening and synthesis.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-navy" href="#what-we-do">See How We Work →</a>
+      <a class="btn btn-ghost" href="#mosaic-demo">Try mosAIc Demo</a>
+    </div>
+  </div>
+  <div class="hero-right fade-in">
+    <p class="hero-panel-label">By the numbers</p>
+    <div class="hero-stat">
+      <div class="h-stat-num">27</div>
+      <div class="h-stat-lbl">Fortune 100 companies served</div>
+    </div>
+    <div class="hero-stat">
+      <div class="h-stat-num">20+</div>
+      <div class="h-stat-lbl">Years of international experience</div>
+    </div>
+    <div class="hero-stat">
+      <div class="h-stat-num">7</div>
+      <div class="h-stat-lbl">Enterprise mosAIc clients</div>
+    </div>
+    <div class="hero-stat">
+      <div class="h-stat-num">50+</div>
+      <div class="h-stat-lbl">Qualified prospects in pipeline</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ta">◆</span>Expert Facilitation</span>
+    <span class="ticker-item"><span class="ta">◆</span>AI-Enabled Listening</span>
+    <span class="ticker-item"><span class="ta">◆</span>Strategic Alignment</span>
+    <span class="ticker-item"><span class="ta">◆</span>mosAIc Technology</span>
+    <span class="ticker-item"><span class="ta">◆</span>The Design Shop</span>
+    <span class="ticker-item"><span class="ta">◆</span>Collins Vision Framework</span>
+    <span class="ticker-item"><span class="ta">◆</span>The Collaboration Code</span>
+    <span class="ticker-item"><span class="ta">◆</span>Harvard Kennedy School</span>
+    <span class="ticker-item"><span class="ta">◆</span>Expert Facilitation</span>
+    <span class="ticker-item"><span class="ta">◆</span>AI-Enabled Listening</span>
+    <span class="ticker-item"><span class="ta">◆</span>Strategic Alignment</span>
+    <span class="ticker-item"><span class="ta">◆</span>mosAIc Technology</span>
+    <span class="ticker-item"><span class="ta">◆</span>The Design Shop</span>
+    <span class="ticker-item"><span class="ta">◆</span>Collins Vision Framework</span>
+    <span class="ticker-item"><span class="ta">◆</span>The Collaboration Code</span>
+    <span class="ticker-item"><span class="ta">◆</span>Harvard Kennedy School</span>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section id="what-we-do">
+  <div class="wwd-layout">
+    <div class="fade-in">
+      <p class="section-label">What We Do</p>
+      <h2>We make <em>complexity</em> navigable.</h2>
+      <div class="divider"></div>
+      <p class="lead">Most alignment efforts begin in the room. By then, it is already late. Perspectives are filtered, time is limited, and conversation is shaped as much by group dynamics as by the ideas themselves.</p>
+      <br/>
+      <p class="lead">Neutral Ground works differently. We start by listening — deeply, privately, and at scale — before anyone enters the room. Then we design the conversations that actually move groups forward.</p>
+      <br/>
+      <p class="lead">The result is not just better conversations. It's faster alignment, stronger decisions, and momentum that lasts beyond the room.</p>
+    </div>
+    <div class="service-list fade-in">
+      <div class="service-item"><span class="s-num">01</span><div class="s-content"><h3>Deep Listening at Scale</h3><p>We hear from your people — one voice at a time, privately — before any group conversation. What they won't say in a meeting, they'll say to us.</p></div></div>
+      <div class="service-item"><span class="s-num">02</span><div class="s-content"><h3>AI-Powered Synthesis</h3><p>mosAIc synthesizes what your organization actually thinks, knows, and needs into a clear, honest picture. No black boxes. No replacement of human judgment.</p></div></div>
+      <div class="service-item"><span class="s-num">03</span><div class="s-content"><h3>Expert Facilitation</h3><p>We design and facilitate conversations that turn insight into strategy, alignment into decisions, and decisions into action — compressed from months into days.</p></div></div>
+      <div class="service-item"><span class="s-num">04</span><div class="s-content"><h3>Strategic Design</h3><p>Through The Design Shop, we help organizations build the structures, stories, and systems to move from where they are to where they want to go.</p></div></div>
+    </div>
+  </div>
+  <div class="photo-ph photo-ph-wide photo-ph-light fade-in" data-label="[ Photo — team working through a challenge together ]"></div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="fade-in">
+    <p class="section-label" style="color:rgba(255,255,255,0.35)">Our Approach</p>
+    <h2 class="light">Why our facilitation <em style="color:rgba(255,255,255,0.45)">doesn't suck</em></h2>
+  </div>
+  <div class="approach-grid fade-in">
+    <div class="a-cell"><p class="a-num">— 01</p><h3 class="a-title">We start before the room</h3><p class="a-text">Most facilitators show up on the day. We start weeks earlier — listening, mapping the terrain, designing a process that reflects what's actually true. By the time the group gathers, we're not starting from scratch.</p></div>
+    <div class="a-cell"><p class="a-num">— 02</p><h3 class="a-title">We create genuine candor</h3><p class="a-text">People say things in a private conversation that they will never say in a meeting or to their boss. We create that space deliberately. The result isn't polite agreement — it's the real picture.</p></div>
+    <div class="a-cell"><p class="a-num">— 03</p><h3 class="a-title">We design for decisions</h3><p class="a-text">Every session is designed around clear outcomes: a decision made, a direction chosen, a commitment owned. We stay until the work is done — not until the time runs out.</p></div>
+    <div class="a-cell"><p class="a-num">— 04</p><h3 class="a-title">AI accelerates, humans lead</h3><p class="a-text">mosAIc lets us listen to dozens of people and synthesize at scale. But every insight is read, considered, and carried forward by experienced human practitioners. No automation of authority.</p></div>
+    <div class="a-cell"><p class="a-num">— 05</p><h3 class="a-title">We work with you, not at you</h3><p class="a-text">We don't arrive with answers. We design processes with your team, train your language into our tools, and adapt in real time. The insights belong to your organization.</p></div>
+    <div class="a-cell"><p class="a-num">— 06</p><h3 class="a-title">People support what they create</h3><p class="a-text">The most durable alignment comes from a process where real perspectives shaped the outcome. That's the difference between a strategy that gets implemented and one that sits in a binder.</p></div>
+  </div>
+  <div class="photo-ph photo-ph-wide fade-in" data-label="[ Photo — facilitator leading a room ]"></div>
+  <div class="approach-pull fade-in">
+    <p>"The best facilitation is invisible. The group leaves feeling like they did it themselves — because they did."</p>
+    <cite>— Jonah Evans, Founder &amp; CEO, Neutral Ground</cite>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="fade-in">
+    <p class="section-label">Our Products</p>
+    <h2>Two tools. <em>One integrated system.</em></h2>
+    <p class="lead" style="margin-top:14px">Everything flows through two core offerings — designed to work independently or as a seamlessly integrated process.</p>
+  </div>
+  <div class="product-grid fade-in">
+    <div class="product-card p-navy">
+      <div class="product-header">
+        <span class="p-eyebrow">Listening + Synthesis</span>
+        <h3 class="product-name">mosAIc</h3>
+        <p class="product-desc">Every piece matters. Together they make the picture.<br/><br/>The insight your leadership team needs is already scattered across dozens of people in your organization. mosAIc finds it, assembles it, and puts it in your hands.</p>
+        <div class="product-callout">No surveys. No committees. No filtering through management layers. Real conversations. Real synthesis. Real clarity.</div>
+      </div>
+      <ul class="product-steps">
+        <li class="p-step"><span class="p-step-num">Step 01</span><span class="p-step-text">The First Look — a two-hour guided conversation to define the real question</span></li>
+        <li class="p-step"><span class="p-step-num">Step 02</span><span class="p-step-text">The Listening — up to 50 private, AI-powered conversations with your people</span></li>
+        <li class="p-step"><span class="p-step-num">Step 03</span><span class="p-step-text">The Design Session — turning insight into strategy, decisions, and next steps</span></li>
+        <li class="p-step"><span class="p-step-num">Step 04</span><span class="p-step-text">The Inner mosAIc — ongoing access to a dedicated Guide for continuous intelligence</span></li>
+      </ul>
+      <div class="product-footer"><a class="p-link" href="#mosaic-demo">Try the live demo →</a></div>
+    </div>
+    <div class="product-card p-amber-t">
+      <div class="product-header">
+        <span class="p-eyebrow">Strategy + Design</span>
+        <h3 class="product-name">The Design Shop</h3>
+        <p class="product-desc">A structured, immersive process for organizations ready to move — from strategic conversations to collaborative design to built artifacts your team can actually use.</p>
+        <div class="product-callout">Rooted in the DesignShop methodology developed by Rob Evans and Imaginal Labs — co-authors of The Collaboration Code.</div>
+      </div>
+      <ul class="product-steps">
+        <li class="p-step"><span class="p-step-num">Phase 01</span><span class="p-step-text">Challenge framing — defining the real question your team needs to answer</span></li>
+        <li class="p-step"><span class="p-step-num">Phase 02</span><span class="p-step-text">Diverge — generating ideas, possibilities, and perspectives widely</span></li>
+        <li class="p-step"><span class="p-step-num">Phase 03</span><span class="p-step-text">Converge — building shared understanding and testable prototypes</span></li>
+        <li class="p-step"><span class="p-step-num">Phase 04</span><span class="p-step-text">Commit — turning best thinking into clear decisions and owned next steps</span></li>
+      </ul>
+      <div class="product-footer"><a class="p-link" href="#contact">Inquire about The Design Shop →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOSAIC DEMO -->
+<section id="mosaic-demo">
+  <div class="fade-in">
+    <p class="section-label">Interactive Demo</p>
+    <h2>Experience <em>mosAIc</em> yourself</h2>
+  </div>
+  <div class="demo-layout fade-in">
+    <div class="demo-panel">
+      <div class="demo-bar">
+        <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
+        <span class="demo-url">mosAIc · the process</span>
+      </div>
+      <div class="demo-body-inner">
+        <div class="demo-status"><div class="status-dot"></div>mosAIc · Live · Ready</div>
+        <elevenlabs-convai agent-id="agent_8101kkw546n2em9t8q26dy1wa0q3"></elevenlabs-convai>
+      </div>
+    </div>
+    <div class="demo-right">
+      <p>This is a live demo of the mosAIc process — the same technology deployed for clients. Have a real conversation and see how the listening process feels from the inside.</p>
+      <p>This is what your people experience: a private, thoughtful conversation that feels nothing like a survey. mosAIc has been trained to listen — not just record — and to ask the questions that surface what matters most.</p>
+      <a class="btn btn-ghost" href="https://elevenlabs.io/app/talk-to?agent_id=agent_8101kkw546n2em9t8q26dy1wa0q3&branch_id=agtbrch_8501kkw547k7f2p88yp6vm3qhzm7" target="_blank" rel="noopener">Open Demo in New Tab ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="impact-layout">
+    <div class="fade-in">
+      <p class="section-label">Our Impact</p>
+      <h2>Two decades. <em>Real results.</em></h2>
+      <div class="divider"></div>
+      <p class="lead">Neutral Ground has worked with some of the world's most complex and consequential organizations — from the Fortune 100 to global health bodies to federal agencies.</p>
+      <p class="logo-strip-header">Recent clients + partners</p>
+      <div class="logo-strip">
+
+        <!-- LOGO PLACEHOLDER: Gates Foundation (updated branding) - get SVG from https://commons.wikimedia.org/wiki/File:Gates_Foundation_Logo.svg and save to /logos/gates-foundation.svg -->
+        <span class="logo-strip-ph">Gates Foundation</span>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/World_Health_Organization_Logo.svg" alt="World Health Organization"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Tulane_University_Logo.svg" alt="Tulane University"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/US_Air_Force_Logo_Solid_Colour.svg" alt="US Air Force"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/United_States_Space_Force_logo.svg" alt="US Space Force"/>
+
+        <img src="https://polioeradication.org/wp-content/themes/gpei/assets/images/logos/gpei-logo-2024.png" alt="Polio Global Eradication Initiative"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/UN_WOMEN_Logo.svg" alt="UN Women"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/PwC_Company_Logo.svg" alt="PwC"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/0f/Aspen_Institute_Logo_-_New_Brand.webp" alt="Aspen Institute"/>
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Logo_Habitat_for_Humanity.svg" alt="Habitat for Humanity"/>
+
+        <img src="https://southernmaternalequity.wp.tulane.edu/wp-content/uploads/sites/75/2026/01/SCMCH_updated2026-scaled.png" alt="Southern Center for Maternal Health Equity"/>
+
+        <!-- LOGO PLACEHOLDER: Blue Climate Initiative - save color version to /logos/blue-climate-initiative.svg -->
+        <span class="logo-strip-ph">Blue Climate Initiative</span>
+
+        <!-- LOGO PLACEHOLDER: New Orleans & Company - save color version to /logos/new-orleans-company.svg -->
+        <span class="logo-strip-ph">New Orleans &amp; Company</span>
+
+        <!-- LOGO PLACEHOLDER: LED Louisiana - save to /logos/led-louisiana.svg -->
+        <span class="logo-strip-ph">LED Louisiana</span>
+
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="stats-panel">
+        <div class="stat-box"><div class="stat-num">27</div><div class="stat-lbl">Fortune 100 companies served</div></div>
+        <div class="stat-box"><div class="stat-num">7</div><div class="stat-lbl">Enterprise mosAIc clients</div></div>
+        <div class="stat-box"><div class="stat-num">50+</div><div class="stat-lbl">Prospects in pipeline</div></div>
+        <div class="stat-box"><div class="stat-num">20+</div><div class="stat-lbl">Years international experience</div></div>
+      </div>
+      <div class="photo-ph photo-ph-med" data-label="[ Photo — client session or workshop ]"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN SHOP -->
+<section id="design-shop">
+  <div class="ds-layout">
+    <div class="fade-in">
+      <p class="section-label">The Design Shop</p>
+      <h2>Where strategy becomes something you can <em>hold.</em></h2>
+      <div class="divider"></div>
+      <p class="lead">The Design Shop isn't a meeting. It's a designed experience — a structured environment where your team's best thinking gets captured, organized, and built into something real.</p>
+      <br/>
+      <p class="lead">Rooted in decades of DesignShop methodology, refined through hundreds of engagements with leadership teams at the world's most complex organizations.</p>
+      <div class="collab-box">
+        <div class="collab-bar"></div>
+        <div class="collab-inner">
+          <h4>The Collaboration Code</h4>
+          <p>The methodology behind Neutral Ground's work is grounded in the principles of The Collaboration Code — co-authored by Jonah Evans and his father, Rob Evans of Imaginal Labs. The book articulates the theory and practice of designing collaborative environments where hard challenges get solved.</p>
+          <a class="collab-link" href="https://www.imaginal-labs.com/the-collaboration-code-1" target="_blank" rel="noopener">Purchase on Imaginal Labs →</a>
+        </div>
+      </div>
+    </div>
+    <div class="ds-features fade-in">
+      <div class="photo-ph photo-ph-tall photo-ph-light" data-label="[ Photo — design sprint in progress ]"></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Built for complexity</h4><p>Developed specifically for challenges that don't have obvious answers — where the right solution requires diverse perspectives, tested assumptions, and genuine shared understanding.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Artifacts you can use</h4><p>You leave with more than clarity — you leave with built things. Frameworks. Prototypes. Shared language. Documents your team helped create and therefore actually owns.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Months compressed into days</h4><p>What most organizations take quarters to work through, The Design Shop compresses into an intensive, structured process — without sacrificing depth or ownership.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Powered by mosAIc pre-work</h4><p>When combined with mosAIc, the group arrives with a clear picture of its own thinking — moving directly into meaningful alignment and decision-making, rather than starting from a blank page.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="fade-in">
+    <p class="section-label">Our Values</p>
+    <h2>What we believe about <em>how this work should go.</em></h2>
+  </div>
+  <div class="values-grid fade-in">
+    <div class="v-cell"><p class="v-num">01</p><h3 class="v-title">People support what they help create</h3><p class="v-body">The most durable alignment comes from a process that reflects real perspectives. We build that in from the start — not as a nice idea, but as the architecture of everything we do.</p></div>
+    <div class="v-cell"><p class="v-num">02</p><h3 class="v-title">Hard truth, held well</h3><p class="v-body">The most useful thing we can offer a leadership team is an honest picture of where they actually are. We create the conditions for candor — and we don't flinch from what we find.</p></div>
+    <div class="v-cell"><p class="v-num">03</p><h3 class="v-title">Human judgment, always</h3><p class="v-body">AI helps us move fast and synthesize at scale. But every insight is read, considered, and carried forward by experienced human practitioners. We don't automate authority.</p></div>
+    <div class="v-cell"><p class="v-num">04</p><h3 class="v-title">Design over default</h3><p class="v-body">Good outcomes don't happen by accident. They're designed — with clear objectives, thoughtful structure, and a process that respects both the people and the complexity of the challenge.</p></div>
+    <div class="v-cell"><p class="v-num">05</p><h3 class="v-title">Outcomes, not optics</h3><p class="v-body">We measure our work by what changes after we leave — decisions made, strategies implemented, organizations that move. A beautiful process that produces no forward motion is not a success.</p></div>
+    <div class="v-cell"><p class="v-num">06</p><h3 class="v-title">Neutral ground is a practice</h3><p class="v-body">We don't take sides. We create the conditions for groups to find their own way forward — with discipline, trust, and a genuine belief that the people in the room have what they need.</p></div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section id="who-we-are">
+  <div class="wwa-layout">
+    <div class="bio-sidebar fade-in">
+      <div class="headshot-wrap">
+        <div class="headshot-inner">
+          <span class="headshot-ph">[ Headshot — replace ]</span>
+        </div>
+      </div>
+      <div class="nameplate">
+        <p class="nameplate-name">Jonah Evans</p>
+        <p class="nameplate-role">Founder &amp; CEO · Neutral Ground HQ LLC</p>
+      </div>
+      <div class="cred-tags">
+        <span class="cred-tag">Harvard Kennedy School</span>
+        <span class="cred-tag">Ash Center Fellow</span>
+        <span class="cred-tag">New Orleans</span>
+      </div>
+    </div>
+    <div class="bio-main fade-in">
+      <p class="section-label">Who We Are</p>
+      <h2>Built for the work that <em>actually matters.</em></h2>
+      <div class="divider"></div>
+      <div class="bio-section">
+        <h3>About Jonah</h3>
+        <p>Jonah Evans is the Founder and CEO of Neutral Ground, a New Orleans–based firm focused on helping organizations align, decide, and move forward on their most complex challenges.</p>
+        <p>With more than two decades of international experience, Jonah has worked with 27 of the Fortune 100 companies, federal agencies, global foundations, and nonprofit coalitions to align stakeholders, surface hard truths, and move groups toward meaningful outcomes.</p>
+        <p>He is the creator of mosAIc — an AI-enabled listening and synthesis approach that combines human facilitation with advanced technology to capture perspectives across systems, revealing patterns, tensions, and opportunities that would otherwise remain hidden.</p>
+        <p>He holds a master's degree from the Harvard Kennedy School, where he was awarded the Ash Center Fellowship for Democratic Governance and Innovation. He lives in New Orleans with his wife and three children.</p>
+      </div>
+      <div class="bio-section">
+        <h3>About Neutral Ground</h3>
+        <p>Neutral Ground is a multidisciplinary strategy and design firm that helps organizations align, decide, and move forward on their most complex challenges. We bring together expert facilitation, collaborative design, and AI-enabled insight to uncover what people really think, surface what matters most, and translate it into clear direction and action.</p>
+        <p>Our diverse team of designers, artists, facilitators, storytellers, technologists, and educators brings decades of experience helping organizations make sense of complexity and move forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-layout">
+    <div class="fade-in">
+      <p class="section-label">Contact</p>
+      <h2 class="light">Let's start a <em>conversation.</em></h2>
+      <div class="divider light"></div>
+      <p class="lead light">Whether you're exploring mosAIc, planning a Design Shop, or just want to talk through a challenge — we'd love to hear from you.</p>
+      <div class="contact-info">
+        <div class="c-row">
+          <span class="c-lbl">Location</span>
+          <span class="c-val">New Orleans, Louisiana</span>
+        </div>
+        <div class="c-row">
+          <span class="c-lbl">Email</span>
+          <span class="c-val"><a href="mailto:jonah@neutralgroundhq.com">jonah@neutralgroundhq.com</a></span>
+        </div>
+        <div class="c-row">
+          <span class="c-lbl">Demo</span>
+          <span class="c-val"><a href="https://elevenlabs.io/app/talk-to?agent_id=agent_8101kkw546n2em9t8q26dy1wa0q3&branch_id=agtbrch_8501kkw547k7f2p88yp6vm3qhzm7" target="_blank" rel="noopener">Try the mosAIc Process</a></span>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form fade-in">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Jane"/>
+        </div>
+        <div class="form-field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Smith"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="jane@company.com"/>
+      </div>
+      <div class="form-field">
+        <label for="org">Organization</label>
+        <input type="text" id="org" name="org" placeholder="Your organization"/>
+      </div>
+      <div class="form-field">
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest">
+          <option value="">Select one…</option>
+          <option value="mosaic">mosAIc</option>
+          <option value="design-shop">The Design Shop</option>
+          <option value="facilitation">Expert Facilitation</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what you're working on…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-navy" style="border:none;cursor:pointer;width:100%;justify-content:center;">Send Message →</button>
+      <p class="form-note">We typically respond within one business day.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Neutral Ground <span>HQ</span></div>
+  <p class="footer-copy">© 2025 Neutral Ground HQ LLC · New Orleans, Louisiana</p>
+  <nav class="footer-links">
+    <a href="#what-we-do">What We Do</a>
+    <a href="#products">Products</a>
+    <a href="#impact">Impact</a>
+    <a href="#who-we-are">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<script>
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
