@@ -11,21 +11,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --white:   #ffffff;
-      --off:     #f8f7f5;
-      --off2:    #f1efe9;
-      --navy:    #0D2B56;
-      --navy2:   #091F3E;
-      --navy3:   #122E5C;
-      --ink:     #1c1c1c;
-      --ink2:    #4a4a4a;
-      --ink3:    #888880;
-      --red:     #BD3039;
-      --red-dim: rgba(189,48,57,0.12);
-      --blue:    #1AAEBC;
-      --amber-l: rgba(189,48,57,0.08);
-      --border:  #e4e2da;
-      --border2: #d0cdc4;
+      --white:   #FFF8F3;
+      --off:     #FFF8F3;
+      --off2:    #F5C4B8;
+      --navy:    #2F4858;
+      --navy2:   #253D4A;
+      --navy3:   #375565;
+      --ink:     #2F4858;
+      --ink2:    #4A6270;
+      --ink3:    #7A9AA8;
+      --red:     #E85D4A;
+      --red-dim: rgba(232,93,74,0.12);
+      --blue:    #B8D8C8;
+      --amber-l: rgba(232,93,74,0.08);
+      --border:  #E8D8CC;
+      --border2: #D4C4B8;
       --ff-head:   'Bricolage Grotesque', sans-serif;
       --ff-body:   'Source Serif 4', Georgia, serif;
       --ff-accent: 'Kalam', cursive;
@@ -33,7 +33,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px; /* 68px nav + 12px breathing room */
+      scroll-padding-top: 80px;
     }
 
     section, footer {
@@ -51,109 +51,58 @@
 
     /* ── NAV ──────────────────────────────────────── */
     nav {
-      box-sizing: border-box;
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      z-index: 1000;
+      width: 100%;
       height: 68px;
+      z-index: 1000;
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
       align-items: center;
-      justify-content: space-between;
       padding: 0 48px;
       background: var(--navy2);
       border-bottom: 2px solid var(--navy3);
-      overflow: visible;
     }
 
-    .nav-logo {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-mark {
-      width: 32px; height: 32px;
-      background: var(--red);
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-    }
- 
-    .logo-mark::after {
-      content: '';
-      width: 10px; height: 10px;
-      background: var(--white);
-    }
-    
-    .logo-wordmark {
+    nav::before {
+      content: 'Neutral Ground HQ';
       font-family: var(--ff-head);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       color: var(--white);
+      flex: 1;
       white-space: nowrap;
     }
 
-    .logo-wordmark span {
-      color: rgba(255,255,255,0.5);
-      font-weight: 400;
+    nav::after {
+      content: '';
+      flex: 1;
     }
 
+
+
     .nav-links {
-      flex: 1;
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
       align-items: center;
-      justify-content: center;
       gap: 24px;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    .nav-links li {
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-
     .nav-links a {
       font-family: var(--ff-head);
-      font-size: 14px;
+      font-size: 24px;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: var(--white);
+      color: rgba(255,255,255,0.7);
       text-decoration: none;
       white-space: nowrap;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: #1AAEBC; }
-
-    .nav-cta {
-      flex-shrink: 0;
-      white-space: nowrap;
-      font-family: var(--ff-head);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      color: var(--white);
-      background: var(--navy);
-      padding: 10px 22px;
-      text-decoration: none;
-      border: 1.5px solid var(--navy);
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .nav-cta:hover { background: var(--red); border-color: var(--red); }
+    .nav-links a:hover { color: var(--white); }
 
     /* ── HERO ─────────────────────────────────────── */
     #hero {
@@ -163,10 +112,40 @@
       gap: 80px;
       align-items: center;
       min-height: 100vh;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--navy);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-left {}
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(47,72,88,0.7);
+      z-index: 1;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+    }
+
+    #hero h1 { color: var(--white); }
+    #hero .hero-kicker { color: rgba(255,255,255,0.6); }
+    #hero .hero-kicker::before { background: rgba(255,255,255,0.4); }
+    #hero .btn-ghost { color: var(--white); border-color: rgba(255,255,255,0.3); }
 
     .hero-kicker {
       font-family: var(--ff-accent);
@@ -205,7 +184,7 @@
     .hero-lead {
       font-size: 18px;
       font-weight: 300;
-      color: var(--ink2);
+      color: rgba(255,255,255,0.7);
       line-height: 1.75;
       max-width: 540px;
       margin-bottom: 48px;
@@ -253,6 +232,9 @@
       display: flex;
       flex-direction: column;
       gap: 0;
+      position: relative;
+      z-index: 2;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3);
       align-self: stretch;
     }
 
@@ -292,8 +274,8 @@
 
     /* ── TICKER ───────────────────────────────────── */
     .ticker-wrap {
-      background: var(--off2);
-      border-bottom: 1px solid var(--border);
+      background: var(--navy);
+      border-bottom: 1px solid var(--navy3);
       padding: 13px 0;
       overflow: hidden;
     }
@@ -309,11 +291,11 @@
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.04em;
-      color: var(--ink3);
+      color: rgba(255,255,255,0.5);
       padding: 0 36px;
     }
 
-    .ticker-item .ta { color: var(--blue); margin-right: 36px; }
+    .ticker-item .ta { color: var(--red); margin-right: 36px; }
 
     @keyframes ticker {
       0%   { transform: translateX(0); }
@@ -396,10 +378,11 @@
       gap: 24px;
       align-items: flex-start;
       transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
     }
     .service-item:hover {
       border-color: var(--border2);
-      box-shadow: 0 2px 16px rgba(13,43,86,0.06);
+      box-shadow: 0 2px 16px rgba(47,72,88,0.06);
     }
 
     .s-num {
@@ -452,6 +435,7 @@
       padding: 36px 32px;
       transition: background 0.2s;
       position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
     .a-cell:hover { background: var(--navy3); }
 
@@ -469,7 +453,7 @@
       font-family: var(--ff-head);
       font-size: 10px;
       letter-spacing: 0.15em;
-      color: rgba(26,174,188,0.45);
+      color: rgba(184,216,200,0.45);
       margin-bottom: 16px;
     }
 
@@ -532,9 +516,10 @@
       border: 1px solid var(--border);
       overflow: hidden;
       transition: box-shadow 0.2s;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 8px 32px rgba(47,72,88,0.1);
     }
     .product-card:hover {
-      box-shadow: 0 8px 32px rgba(13,43,86,0.08);
+      box-shadow: 0 8px 32px rgba(47,72,88,0.08);
     }
 
     .product-header {
@@ -552,7 +537,7 @@
       margin-bottom: 20px;
     }
 
-    .p-navy .p-eyebrow { background: rgba(13,43,86,0.07); color: var(--navy); }
+    .p-navy .p-eyebrow { background: rgba(47,72,88,0.07); color: var(--navy); }
     .p-amber-t .p-eyebrow { background: var(--amber-l); color: var(--red); }
 
     .product-name {
@@ -581,7 +566,7 @@
       line-height: 1.6;
     }
 
-    .p-navy .product-callout { background: rgba(13,43,86,0.04); border-left: 2px solid var(--navy); }
+    .p-navy .product-callout { background: rgba(47,72,88,0.04); border-left: 2px solid var(--navy); }
     .p-amber-t .product-callout { background: var(--amber-l); border-left: 2px solid var(--red); }
 
     .product-steps {
@@ -658,6 +643,7 @@
       background: var(--navy2);
       border: 1px solid rgba(255,255,255,0.07);
       overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3);
     }
 
     .demo-bar {
@@ -669,9 +655,9 @@
       gap: 6px;
     }
 
-    .dot-r { width: 10px; height: 10px; border-radius: 50%; background: #c94030; }
+    .dot-r { width: 10px; height: 10px; border-radius: 50%; background: #E85D4A; }
     .dot-y { width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
-    .dot-g { width: 10px; height: 10px; border-radius: 50%; background: #3a8a50; }
+    .dot-g { width: 10px; height: 10px; border-radius: 50%; background: #6DB88A; }
 
     .demo-url {
       font-family: var(--ff-head);
@@ -750,6 +736,7 @@
       background: var(--white);
       padding: 28px 24px;
       transition: background 0.2s;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
     }
     .stat-box:hover { background: var(--off); }
 
@@ -832,6 +819,7 @@
       gap: 18px;
       align-items: flex-start;
       transition: border-color 0.2s;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
     }
     .ds-feat:hover { border-color: var(--border2); }
 
@@ -867,6 +855,7 @@
       display: flex;
       gap: 20px;
       align-items: flex-start;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3);
     }
 
     .collab-bar {
@@ -927,6 +916,7 @@
       padding: 36px 30px;
       transition: background 0.2s;
       position: relative;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
     }
     .v-cell:hover { background: var(--off); }
     .v-cell:hover::before {
@@ -1106,10 +1096,10 @@
       font-family: var(--ff-body);
       font-size: 14px;
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.8);
     }
 
-    .c-val a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .c-val a { color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
     .c-val a:hover { color: var(--blue); }
 
     .contact-form {
@@ -1127,14 +1117,14 @@
       font-size: 10px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
     }
 
     .form-field input,
     .form-field textarea,
     .form-field select {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
       color: var(--white);
       font-family: var(--ff-body);
       font-size: 15px;
@@ -1145,7 +1135,7 @@
     }
 
     .form-field input::placeholder,
-    .form-field textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-field textarea::placeholder { color: rgba(255,255,255,0.5); }
 
     .form-field input:focus,
     .form-field textarea:focus,
@@ -1155,7 +1145,7 @@
 
     .form-field select {
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(189,48,57,.7)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='rgba(232,93,74,.7)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
     }
@@ -1164,7 +1154,7 @@
     .form-note {
       font-family: var(--ff-head);
       font-size: 10px;
-      color: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.5);
       letter-spacing: 0.06em;
     }
 
@@ -1206,6 +1196,23 @@
     }
     .footer-links a:hover { color: var(--blue); }
 
+    /* ── GRAPHIC SHOWCASE ─────────────────────────── */
+    .graphic-showcase {
+      padding: 72px 56px;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: center;
+    }
+    .graphic-showcase img {
+      width: 85%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3);
+    }
+
     /* ── PHOTO PLACEHOLDERS ───────────────────────── */
     .photo-ph {
       width: 100%;
@@ -1235,6 +1242,148 @@
     .photo-ph-light { background: var(--off2); }
     .photo-ph-light::after { color: var(--border2); }
 
+    /* ── SECTION PHOTOS ──────────────────────────── */
+    .section-photo {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05), 0 8px 32px rgba(47,72,88,0.1);
+    }
+    .section-photo-wide { height: 380px; margin-top: 52px; }
+    .section-photo-tall { height: 480px; }
+    .section-photo-med  { height: 300px; margin-top: 28px; }
+
+    /* ── SECTION BACKGROUND IMAGES ───────────────── */
+    #approach {
+      position: relative;
+      overflow: hidden;
+    }
+    #approach::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('Photos/DSC09860.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+    #approach::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(47,72,88,0.85);
+      z-index: 1;
+    }
+    #approach > * { position: relative; z-index: 2; }
+
+    #contact {
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('2025_CP_Core_Strategy_Session_Group_Photo_02.jpg') center top/cover no-repeat;
+      z-index: 0;
+    }
+    #contact::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(47,72,88,0.82);
+      z-index: 1;
+    }
+    #contact > * { position: relative; z-index: 2; }
+
+    /* Approach photo with quote overlay */
+    .approach-photo-wrap {
+      position: relative;
+      margin-top: 52px;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .approach-photo-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .approach-photo-quote {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 28px 36px;
+      background: rgba(47,72,88,0.7);
+    }
+    .approach-photo-quote p {
+      font-family: var(--ff-body);
+      font-size: 18px;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .approach-photo-quote cite {
+      font-family: var(--ff-accent);
+      font-size: 14px;
+      color: var(--blue);
+      font-style: normal;
+    }
+
+    /* ── VALUES BACKGROUND ───────────────────────── */
+    #values {
+      position: relative;
+      overflow: hidden;
+    }
+    #values::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('People Photos/people-08.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+    #values::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(47,72,88,0.88);
+      z-index: 1;
+    }
+    #values > * { position: relative; z-index: 2; }
+    #values .section-label { color: rgba(255,255,255,0.4); }
+    #values .section-label::before { background: rgba(255,255,255,0.2); }
+    #values h2 { color: var(--white); }
+    #values h2 em { color: rgba(255,255,255,0.5); }
+    #values .v-num { color: var(--blue); opacity: 0.6; }
+    #values .v-title { color: var(--white); }
+    #values .v-body { color: rgba(255,255,255,0.55); }
+    #values .values-grid { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.08); }
+    #values .v-cell { background: transparent; }
+    #values .v-cell:hover { background: rgba(255,255,255,0.05); }
+    #values .v-cell:hover::before { background: var(--red); }
+
+    /* ── MOSAIC DEMO BACKGROUND ──────────────────── */
+    #mosaic-demo {
+      position: relative;
+      overflow: hidden;
+    }
+    #mosaic-demo::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('Photos/DSC09831.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+    #mosaic-demo::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255,248,243,0.82);
+      z-index: 1;
+    }
+    #mosaic-demo > * { position: relative; z-index: 2; }
+
     /* ── ANIMATION ────────────────────────────────── */
     .fade-in {
       opacity: 0;
@@ -1247,8 +1396,9 @@
 
     /* ── RESPONSIVE ───────────────────────────────── */
     @media (max-width: 680px) {
-      nav { padding: 0 22px; }
-      .nav-links { display: none; }
+      nav { padding: 0 22px; gap: 20px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 12px; }
       section { padding: 68px 22px; }
       #hero { grid-template-columns: 1fr; padding: 108px 22px 72px; }
       .hero-right { margin-top: 0; align-self: auto; }
@@ -1264,10 +1414,6 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#hero">
-    <div class="logo-mark"></div>
-    <span class="logo-wordmark">Neutral Ground <span>HQ</span></span>
-  </a>
   <ul class="nav-links">
     <li><a href="#what-we-do">What We Do</a></li>
     <li><a href="#products">Products</a></li>
@@ -1275,11 +1421,15 @@
     <li><a href="#who-we-are">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a class="nav-cta" href="#contact">Start a Conversation</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="HERO_BG_2.mp4" type="video/mp4"/>
+    <source src="Hero-bg.mov" type="video/quicktime"/>
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-left fade-in">
     <p class="hero-kicker">Strategy &amp; Facilitation · New Orleans</p>
     <h1>
@@ -1359,7 +1509,7 @@
       <div class="service-item"><span class="s-num">04</span><div class="s-content"><h3>Strategic Design</h3><p>Through The Design Shop, we help organizations build the structures, stories, and systems to move from where they are to where they want to go.</p></div></div>
     </div>
   </div>
-  <div class="photo-ph photo-ph-wide photo-ph-light fade-in" data-label="[ Photo — team working through a challenge together ]"></div>
+  <img class="section-photo section-photo-wide fade-in" src="People Photos/people-10.jpg" alt="Team working through a challenge together in a circle discussion"/>
 </section>
 
 <!-- APPROACH -->
@@ -1376,10 +1526,12 @@
     <div class="a-cell"><p class="a-num">— 05</p><h3 class="a-title">We work with you, not at you</h3><p class="a-text">We don't arrive with answers. We design processes with your team, train your language into our tools, and adapt in real time. The insights belong to your organization.</p></div>
     <div class="a-cell"><p class="a-num">— 06</p><h3 class="a-title">People support what they create</h3><p class="a-text">The most durable alignment comes from a process where real perspectives shaped the outcome. That's the difference between a strategy that gets implemented and one that sits in a binder.</p></div>
   </div>
-  <div class="photo-ph photo-ph-wide fade-in" data-label="[ Photo — facilitator leading a room ]"></div>
-  <div class="approach-pull fade-in">
-    <p>"The best facilitation is invisible. The group leaves feeling like they did it themselves — because they did."</p>
-    <cite>— Jonah Evans, Founder &amp; CEO, Neutral Ground</cite>
+  <div class="approach-photo-wrap fade-in">
+    <img src="Photos/IMG_4321.JPG" alt="Facilitator leading a room of professionals"/>
+    <div class="approach-photo-quote">
+      <p>"The best facilitation is invisible. The group leaves feeling like they did it themselves — because they did."</p>
+      <cite>— Jonah Evans, Founder &amp; CEO, Neutral Ground</cite>
+    </div>
   </div>
 </section>
 
@@ -1449,6 +1601,43 @@
   </div>
 </section>
 
+<!-- DESIGN SHOP -->
+<section id="design-shop">
+  <div class="ds-layout">
+    <div class="fade-in">
+      <p class="section-label">The Design Shop</p>
+      <h2>Where strategy becomes something you can <em>hold.</em></h2>
+      <div class="divider"></div>
+      <p class="lead">The Design Shop isn't a meeting. It's a designed experience — a structured environment where your team's best thinking gets captured, organized, and built into something real.</p>
+      <br/>
+      <p class="lead">Rooted in decades of DesignShop methodology, refined through hundreds of engagements with leadership teams at the world's most complex organizations.</p>
+      <div class="collab-box">
+        <div class="collab-bar"></div>
+        <div class="collab-inner">
+          <h4>The Collaboration Code</h4>
+          <p>The methodology behind Neutral Ground's work is grounded in the principles of The Collaboration Code — co-authored by Jonah Evans and his father, Rob Evans of Imaginal Labs. The book articulates the theory and practice of designing collaborative environments where hard challenges get solved.</p>
+          <a class="collab-link" href="https://www.imaginal-labs.com/the-collaboration-code-1" target="_blank" rel="noopener">Purchase on Imaginal Labs →</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:24px;">
+        <img src="graphic-ai-solve.png" alt="Graphic illustration — Can AI Solve the Problem?" style="width:50%;max-height:250px;height:auto;object-fit:contain;"/>
+        <img src="graphic-collab.png" alt="Graphic illustration" style="width:50%;max-height:250px;height:auto;object-fit:contain;"/>
+      </div>
+    </div>
+    <div class="ds-features fade-in">
+      <img class="section-photo section-photo-tall" src="People Photos/people-18.jpg" alt="Design sprint in progress — woman writing on whiteboard"/>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Built for complexity</h4><p>Developed specifically for challenges that don't have obvious answers — where the right solution requires diverse perspectives, tested assumptions, and genuine shared understanding.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Artifacts you can use</h4><p>You leave with more than clarity — you leave with built things. Frameworks. Prototypes. Shared language. Documents your team helped create and therefore actually owns.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Months compressed into days</h4><p>What most organizations take quarters to work through, The Design Shop compresses into an intensive, structured process — without sacrificing depth or ownership.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Powered by mosAIc pre-work</h4><p>When combined with mosAIc, the group arrives with a clear picture of its own thinking — moving directly into meaningful alignment and decision-making, rather than starting from a blank page.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="graphic-showcase fade-in">
+  <img src="graphic-design-forums.png" alt="Design Forums — five ingredients to accelerate breakthroughs"/>
+</section>
+
 <!-- IMPACT -->
 <section id="impact">
   <div class="impact-layout">
@@ -1460,8 +1649,7 @@
       <p class="logo-strip-header">Recent clients + partners</p>
       <div class="logo-strip">
 
-        <!-- LOGO PLACEHOLDER: Gates Foundation (updated branding) - get SVG from https://commons.wikimedia.org/wiki/File:Gates_Foundation_Logo.svg and save to /logos/gates-foundation.svg -->
-        <span class="logo-strip-ph">Gates Foundation</span>
+        <img src="LOGOs/gates-foundation.png" alt="Gates Foundation"/>
 
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"/>
 
@@ -1485,14 +1673,11 @@
 
         <img src="https://southernmaternalequity.wp.tulane.edu/wp-content/uploads/sites/75/2026/01/SCMCH_updated2026-scaled.png" alt="Southern Center for Maternal Health Equity"/>
 
-        <!-- LOGO PLACEHOLDER: Blue Climate Initiative - save color version to /logos/blue-climate-initiative.svg -->
-        <span class="logo-strip-ph">Blue Climate Initiative</span>
+        <img src="LOGOs/blue-climate-initiative.png" alt="Blue Climate Initiative"/>
 
-        <!-- LOGO PLACEHOLDER: New Orleans & Company - save color version to /logos/new-orleans-company.svg -->
-        <span class="logo-strip-ph">New Orleans &amp; Company</span>
+        <img src="LOGOs/new-orleans-company.png" alt="New Orleans &amp; Company"/>
 
-        <!-- LOGO PLACEHOLDER: LED Louisiana - save to /logos/led-louisiana.svg -->
-        <span class="logo-strip-ph">LED Louisiana</span>
+        <img src="LOGOs/led-louisiana.png" alt="LED Louisiana"/>
 
       </div>
     </div>
@@ -1503,36 +1688,7 @@
         <div class="stat-box"><div class="stat-num">50+</div><div class="stat-lbl">Prospects in pipeline</div></div>
         <div class="stat-box"><div class="stat-num">20+</div><div class="stat-lbl">Years international experience</div></div>
       </div>
-      <div class="photo-ph photo-ph-med" data-label="[ Photo — client session or workshop ]"></div>
-    </div>
-  </div>
-</section>
-
-<!-- DESIGN SHOP -->
-<section id="design-shop">
-  <div class="ds-layout">
-    <div class="fade-in">
-      <p class="section-label">The Design Shop</p>
-      <h2>Where strategy becomes something you can <em>hold.</em></h2>
-      <div class="divider"></div>
-      <p class="lead">The Design Shop isn't a meeting. It's a designed experience — a structured environment where your team's best thinking gets captured, organized, and built into something real.</p>
-      <br/>
-      <p class="lead">Rooted in decades of DesignShop methodology, refined through hundreds of engagements with leadership teams at the world's most complex organizations.</p>
-      <div class="collab-box">
-        <div class="collab-bar"></div>
-        <div class="collab-inner">
-          <h4>The Collaboration Code</h4>
-          <p>The methodology behind Neutral Ground's work is grounded in the principles of The Collaboration Code — co-authored by Jonah Evans and his father, Rob Evans of Imaginal Labs. The book articulates the theory and practice of designing collaborative environments where hard challenges get solved.</p>
-          <a class="collab-link" href="https://www.imaginal-labs.com/the-collaboration-code-1" target="_blank" rel="noopener">Purchase on Imaginal Labs →</a>
-        </div>
-      </div>
-    </div>
-    <div class="ds-features fade-in">
-      <div class="photo-ph photo-ph-tall photo-ph-light" data-label="[ Photo — design sprint in progress ]"></div>
-      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Built for complexity</h4><p>Developed specifically for challenges that don't have obvious answers — where the right solution requires diverse perspectives, tested assumptions, and genuine shared understanding.</p></div></div>
-      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Artifacts you can use</h4><p>You leave with more than clarity — you leave with built things. Frameworks. Prototypes. Shared language. Documents your team helped create and therefore actually owns.</p></div></div>
-      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Months compressed into days</h4><p>What most organizations take quarters to work through, The Design Shop compresses into an intensive, structured process — without sacrificing depth or ownership.</p></div></div>
-      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Powered by mosAIc pre-work</h4><p>When combined with mosAIc, the group arrives with a clear picture of its own thinking — moving directly into meaningful alignment and decision-making, rather than starting from a blank page.</p></div></div>
+      <img class="section-photo section-photo-med" src="Photos/DSC09946.jpg" alt="Man writing strategy insights on whiteboard"/>
     </div>
   </div>
 </section>
@@ -1558,9 +1714,7 @@
   <div class="wwa-layout">
     <div class="bio-sidebar fade-in">
       <div class="headshot-wrap">
-        <div class="headshot-inner">
-          <span class="headshot-ph">[ Headshot — replace ]</span>
-        </div>
+        <img src="Evans_headshot.jpg" alt="Jonah Evans" style="width:100%;height:100%;object-fit:cover;display:block;"/>
       </div>
       <div class="nameplate">
         <p class="nameplate-name">Jonah Evans</p>
