@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mosAIc — Neutral Ground HQ</title>
+  <meta name="description" content="Experience mosAIc — Neutral Ground's AI-powered listening and synthesis tool. Try the live interactive demo."/>
+  <meta property="og:title" content="mosAIc — Neutral Ground HQ"/>
+  <meta property="og:description" content="Experience mosAIc — AI-powered listening and synthesis. Try the live interactive demo."/>
+  <meta property="og:image" content="https://neutralgroundhq.com/SEO.png"/>
+  <meta property="og:url" content="https://neutralgroundhq.com/mosaic"/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700;12..96,800&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html#what-we-do">What We Do</a></li>
+    <li><a href="../index.html#products">Products</a></li>
+    <li><a href="../index.html#impact">Impact</a></li>
+    <li><a href="../index.html#who-we-are">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- MOSAIC DEMO -->
+<section id="mosaic-demo">
+  <div class="fade-in">
+    <p class="section-label">Interactive Demo</p>
+    <h2>Experience <em>mosAIc</em> yourself</h2>
+  </div>
+  <div class="demo-layout fade-in">
+    <div class="demo-panel">
+      <div class="demo-bar">
+        <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
+        <span class="demo-url">mosAIc · the process</span>
+      </div>
+      <div class="demo-body-inner">
+        <div class="demo-status"><div class="status-dot"></div>mosAIc · Live · Ready</div>
+        <elevenlabs-convai agent-id="agent_8101kkw546n2em9t8q26dy1wa0q3"></elevenlabs-convai>
+      </div>
+    </div>
+    <div class="demo-right">
+      <p>This is a live demo of the mosAIc process — the same technology deployed for clients. Have a real conversation and see how the listening process feels from the inside.</p>
+      <p>This is what your people experience: a private, thoughtful conversation that feels nothing like a survey. mosAIc has been trained to listen — not just record — and to ask the questions that surface what matters most.</p>
+      <a class="btn btn-ghost" href="https://elevenlabs.io/app/talk-to?agent_id=agent_8101kkw546n2em9t8q26dy1wa0q3&branch_id=agtbrch_8501kkw547k7f2p88yp6vm3qhzm7" target="_blank" rel="noopener">Open Demo in New Tab ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Neutral Ground <span>HQ</span></div>
+  <p class="footer-copy">&copy; 2025 Neutral Ground HQ LLC &middot; New Orleans, Louisiana</p>
+  <nav class="footer-links">
+    <a href="../index.html#what-we-do">What We Do</a>
+    <a href="../index.html#products">Products</a>
+    <a href="../index.html#impact">Impact</a>
+    <a href="../index.html#who-we-are">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</footer>
+
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+<script>
+  // Fade-in animations
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  const overlay = document.getElementById('navOverlay');
+
+  function closeNav() {
+    toggle.classList.remove('open');
+    links.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.contains('open');
+    if (isOpen) {
+      closeNav();
+    } else {
+      toggle.classList.add('open');
+      links.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  overlay.addEventListener('click', closeNav);
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+</script>
+</body>
+</html>

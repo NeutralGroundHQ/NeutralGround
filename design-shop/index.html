@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Design Shop — Neutral Ground HQ</title>
+  <meta name="description" content="The Design Shop — a structured, immersive process where strategy becomes something you can hold. By Neutral Ground HQ."/>
+  <meta property="og:title" content="The Design Shop — Neutral Ground HQ"/>
+  <meta property="og:description" content="A structured, immersive process where strategy becomes something you can hold."/>
+  <meta property="og:image" content="https://neutralgroundhq.com/SEO.png"/>
+  <meta property="og:url" content="https://neutralgroundhq.com/design-shop"/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600;12..96,700;12..96,800&family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="../index.html#what-we-do">What We Do</a></li>
+    <li><a href="../index.html#products">Products</a></li>
+    <li><a href="../index.html#impact">Impact</a></li>
+    <li><a href="../index.html#who-we-are">About</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- DESIGN SHOP -->
+<section id="design-shop">
+  <div class="ds-layout">
+    <div class="fade-in">
+      <p class="section-label">The Design Shop</p>
+      <h2>Where strategy becomes something you can <em>hold.</em></h2>
+      <div class="divider"></div>
+      <p class="lead">The Design Shop isn't a meeting. It's a designed experience — a structured environment where your team's best thinking gets captured, organized, and built into something real.</p>
+      <br/>
+      <p class="lead">Rooted in decades of DesignShop methodology, refined through hundreds of engagements with leadership teams at the world's most complex organizations.</p>
+      <div class="collab-box">
+        <div class="collab-bar"></div>
+        <div class="collab-inner">
+          <h4>The Collaboration Code</h4>
+          <p>The methodology behind Neutral Ground's work is grounded in the principles of The Collaboration Code — co-authored by Jonah Evans and his father, Rob Evans of Imaginal Labs. The book articulates the theory and practice of designing collaborative environments where hard challenges get solved.</p>
+          <a class="collab-link" href="https://www.imaginal-labs.com/the-collaboration-code-1" target="_blank" rel="noopener">Purchase on Imaginal Labs →</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:24px;">
+        <img src="../graphic-ai-solve.png" alt="Graphic illustration — Can AI Solve the Problem?" style="width:50%;max-height:250px;height:auto;object-fit:contain;"/>
+        <img src="../graphic-collab.png" alt="Graphic illustration" style="width:50%;max-height:250px;height:auto;object-fit:contain;"/>
+      </div>
+    </div>
+    <div class="ds-features fade-in">
+      <img class="section-photo section-photo-tall" src="../People Photos/people-18.jpg" alt="Design sprint in progress — woman writing on whiteboard"/>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Built for complexity</h4><p>Developed specifically for challenges that don't have obvious answers — where the right solution requires diverse perspectives, tested assumptions, and genuine shared understanding.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Artifacts you can use</h4><p>You leave with more than clarity — you leave with built things. Frameworks. Prototypes. Shared language. Documents your team helped create and therefore actually owns.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Months compressed into days</h4><p>What most organizations take quarters to work through, The Design Shop compresses into an intensive, structured process — without sacrificing depth or ownership.</p></div></div>
+      <div class="ds-feat"><span class="ds-arrow">→</span><div><h4>Powered by mosAIc pre-work</h4><p>When combined with mosAIc, the group arrives with a clear picture of its own thinking — moving directly into meaningful alignment and decision-making, rather than starting from a blank page.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="graphic-showcase fade-in">
+  <img src="../graphic-design-forums.png" alt="Design Forums — five ingredients to accelerate breakthroughs"/>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Neutral Ground <span>HQ</span></div>
+  <p class="footer-copy">&copy; 2025 Neutral Ground HQ LLC &middot; New Orleans, Louisiana</p>
+  <nav class="footer-links">
+    <a href="../index.html#what-we-do">What We Do</a>
+    <a href="../index.html#products">Products</a>
+    <a href="../index.html#impact">Impact</a>
+    <a href="../index.html#who-we-are">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  // Fade-in animations
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  const overlay = document.getElementById('navOverlay');
+
+  function closeNav() {
+    toggle.classList.remove('open');
+    links.classList.remove('open');
+    overlay.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.contains('open');
+    if (isOpen) {
+      closeNav();
+    } else {
+      toggle.classList.add('open');
+      links.classList.add('open');
+      overlay.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  overlay.addEventListener('click', closeNav);
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+</script>
+</body>
+</html>
