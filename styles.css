@@ -817,12 +817,12 @@ h2.light em { color: rgba(255,255,255,0.55); }
 
 .logo-strip-wide {
   justify-content: center;
-  gap: 40px 56px;
+  gap: 48px 64px;
 }
 
 .logo-strip-wide img {
-  height: 48px;
-  max-width: 180px;
+  height: 72px;
+  max-width: 240px;
 }
 
 .logo-strip-ph {
