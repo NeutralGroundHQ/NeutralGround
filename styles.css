@@ -825,25 +825,16 @@ h2.light em { color: rgba(255,255,255,0.55); }
   max-width: 240px;
 }
 
-.impact-intro {
-  text-align: center;
-}
-
-.impact-intro .section-label {
-  justify-content: center;
-}
-
-.impact-intro .divider {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .impact-intro .lead {
   max-width: none;
 }
 
 #impact .logo-strip-header {
   margin-top: 32px;
+}
+
+#products .lead {
+  max-width: none;
 }
 
 .logo-strip-ph {
