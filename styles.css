@@ -1501,11 +1501,34 @@ footer {
 
   section { padding: 68px 22px; }
   #hero { grid-template-columns: 1fr; padding: 108px 22px 72px; }
-  .hero-right { margin-top: 0; align-self: auto; }
+  .hero-right { margin-top: 0; align-self: auto; padding: 32px 24px; }
   .wwd-layout, .ds-layout, .wwa-layout, .contact-layout, .impact-layout, .demo-layout { grid-template-columns: 1fr; gap: 36px; }
   .product-grid { grid-template-columns: 1fr; }
   .approach-grid, .values-grid { grid-template-columns: 1fr; }
-  .bio-sidebar { position: static; }
+  .bio-sidebar { position: static; max-width: 320px; margin: 0 auto; }
   footer { flex-direction: column; gap: 18px; text-align: center; padding: 28px 22px; }
   .graphic-showcase { padding: 48px 22px; }
+
+  .form-row { grid-template-columns: 1fr; }
+  .section-photo-wide { height: 240px; margin-top: 36px; }
+  .section-photo-tall { height: 320px; }
+  .section-photo-med { height: 200px; }
+  .photo-ph-wide { height: 240px; margin-top: 36px; }
+  .photo-ph-tall { height: 320px; }
+  .photo-ph-med { height: 200px; }
+
+  .logo-strip-wide { gap: 32px 40px; }
+  .logo-strip-wide img { height: 48px; max-width: 160px; }
+
+  h1 br { display: none; }
+
+  .product-header { padding: 28px 24px 22px; }
+  .product-steps { padding: 0 24px; }
+  .product-footer { padding: 18px 24px; }
+
+  .ds-feat { padding: 18px 20px; }
+  .collab-box { padding: 22px 24px; }
+
+  .contact-info { margin-top: 20px; }
+  .c-lbl { min-width: 70px; }
 }
