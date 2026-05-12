@@ -825,6 +825,27 @@ h2.light em { color: rgba(255,255,255,0.55); }
   max-width: 240px;
 }
 
+.impact-intro {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto 52px;
+}
+
+.impact-intro .section-label {
+  justify-content: center;
+}
+
+.impact-intro .divider {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.impact-intro .lead {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .logo-strip-ph {
   font-family: var(--ff-head);
   font-size: 12px;
