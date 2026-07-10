@@ -284,7 +284,10 @@
       <div class="divider light"></div>
       <p class="lead light">Whether you're exploring mosAIc, planning a Design Shop, or just want to talk through a challenge — we'd love to hear from you.</p>
     </div>
-    <form class="contact-form fade-in">
+    <form id="contactForm" class="contact-form fade-in">
+      <input type="hidden" name="access_key" value="f3ae7047-282d-48bb-9bf1-25ac53d6015e">
+      <input type="hidden" name="subject" value="New contact form submission — Neutral Ground">
+      <input type="hidden" name="from_name" value="Neutral Ground Website">
       <div class="form-row">
         <div class="form-field">
           <label for="fname">First Name</label>
@@ -318,7 +321,7 @@
         <textarea id="message" name="message" placeholder="Tell us what you're working on…"></textarea>
       </div>
       <button type="submit" class="btn btn-navy" style="border:none;cursor:pointer;width:100%;justify-content:center;">Send Message →</button>
-      <p class="form-note">We typically respond within one business day.</p>
+      <p id="status" class="form-note">We typically respond within one business day.</p>
     </form>
   </div>
 </section>
@@ -372,6 +375,34 @@
 
   overlay.addEventListener('click', closeNav);
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+  // Contact form submission (Web3Forms)
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('status');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    contactStatus.textContent = 'Sending…';
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        contactStatus.textContent = 'Thanks! Your message was sent.';
+        contactForm.reset();
+      } else {
+        contactStatus.textContent = 'Something went wrong — please try again.';
+      }
+    } catch {
+      contactStatus.textContent = 'Network error — please email neutralgroundhq@gmail.com directly.';
+    }
+  });
 </script>
 </body>
 </html>
