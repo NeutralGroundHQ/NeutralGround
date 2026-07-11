@@ -54,15 +54,16 @@ nav {
   border-bottom: 2px solid var(--navy3);
 }
 
-nav::before {
-  content: 'Neutral Ground HQ';
-  font-family: var(--ff-head);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--white);
-  flex: 1;
-  white-space: nowrap;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  text-decoration: none;
+}
+.nav-logo img {
+  height: 44px;
+  width: auto;
+  display: block;
 }
 
 nav::after {
@@ -81,10 +82,10 @@ nav::after {
 
 .nav-links a {
   font-family: var(--ff-head);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.7);
+  color: #ffffff;
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.2s;
@@ -1473,7 +1474,7 @@ footer {
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 0 22px; }
-  nav::before { flex: 1; font-size: 18px; }
+  .nav-logo img { height: 32px; }
   nav::after { display: none; }
 
   .nav-toggle { display: block; }
