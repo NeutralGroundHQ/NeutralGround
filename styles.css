@@ -54,18 +54,7 @@ nav {
   border-bottom: 2px solid var(--navy3);
 }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-  text-decoration: none;
-}
-.nav-logo img {
-  height: 44px;
-  width: auto;
-  display: block;
-}
-
+nav::before,
 nav::after {
   content: '';
   flex: 1;
@@ -1474,7 +1463,7 @@ footer {
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 900px) {
   nav { padding: 0 22px; }
-  .nav-logo img { height: 32px; }
+  nav::before,
   nav::after { display: none; }
 
   .nav-toggle { display: block; }
